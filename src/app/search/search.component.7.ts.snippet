@@ -1,0 +1,22 @@
+// ...
+import {
+  // ...
+  /*BS*/switchMap/*BE*/
+} from 'rxjs';
+/*BS*/import { Book } from '../shared/book';/*BE*/
+
+@Component({ /* ... */ })
+export class SearchComponent {
+  input$ = new Subject<string>();
+  /*BS*/results: Book[] = [];/*BE*/
+
+  constructor(private bs: BookStoreService) {
+    this.input$.pipe(
+      // ...
+      /*BS*/switchMap(term => this.bs.getAllSearch(term))/*BE*/
+    )
+    .subscribe(books => {
+      this.results = books;
+    });
+  }
+}

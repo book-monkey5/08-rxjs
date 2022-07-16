@@ -1,0 +1,18 @@
+import { Observable, /*BS*/catchError, of/*BE*/ } from 'rxjs';
+
+@Injectable({ /* ... */ })
+export class BookStoreService {
+  // ...
+
+  getAll(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/books`)/*BS*/.pipe(
+      catchError(() => of([]))
+    );/*BE*/
+  }
+
+  getAllSearch(term: string): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/books/search/${term}`)/*BS*/.pipe(
+      catchError(() => of([]))
+    );/*BE*/
+  }
+}

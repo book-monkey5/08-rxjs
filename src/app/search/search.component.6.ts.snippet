@@ -1,0 +1,11 @@
+// ...
+/*BS*/import { BookStoreService } from '../shared/book-store.service';/*BE*/
+
+@Component({ /* ... */ })
+export class SearchComponent {
+  input$ = new Subject<string>();
+
+  constructor(/*BS*/private bs: BookStoreService/*BE*/) {
+    // ...
+  }
+}

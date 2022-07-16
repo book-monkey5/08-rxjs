@@ -1,0 +1,10 @@
+// ...
+@Component({ /* ... */ })
+export class SearchComponent {
+  input$ = new Subject<string>();
+
+  constructor() {
+    /*BS*/this.input$
+      .subscribe(e => console.log(e));/*BE*/
+  }
+}
