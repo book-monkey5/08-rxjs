@@ -14,13 +14,13 @@ export class SearchComponent {
   /*BS*/isLoading = false;/*BE*/
   results: Book[] = [];
 
-  constructor(private bs: BookStoreService) {
+  constructor(private service: BookStoreService) {
     this.input$.pipe(
       filter(term => term.length >= 3),
       debounceTime(500),
       distinctUntilChanged(),
       /*BS*/tap(() => this.isLoading = true),/*BE*/
-      switchMap(term => this.bs.getAllSearch(term)),
+      switchMap(term => this.service.getAllSearch(term)),
       /*BS*/tap(() => this.isLoading = false)/*BE*/
     )
     .subscribe(books => {

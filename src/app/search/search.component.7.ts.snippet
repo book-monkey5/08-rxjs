@@ -10,10 +10,10 @@ export class SearchComponent {
   input$ = new Subject<string>();
   /*BS*/results: Book[] = [];/*BE*/
 
-  constructor(private bs: BookStoreService) {
+  constructor(private service: BookStoreService) {
     this.input$.pipe(
       // ...
-      /*BS*/switchMap(term => this.bs.getAllSearch(term))/*BE*/
+      /*BS*/switchMap(term => this.service.getAllSearch(term))/*BE*/
     )
     .subscribe(books => {
       this.results = books;
