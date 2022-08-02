@@ -1,8 +1,0 @@
-// ...
-@Injectable({ /* ... */ })
-export class BookStoreService {
-  // ...
-  /*BS*/getAllSearch(term: string): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.apiUrl}/books/search/${term}`);
-  }/*BE*/
-}

@@ -11,7 +11,7 @@ import { BookStoreService } from '../shared/book-store.service';
 export class SearchComponent {
 
   input$ = new Subject<string>();
-  /*BS*/isLoading = false;/*BE*/
+  isLoading = false;
   results: Book[] = [];
 
   constructor(private service: BookStoreService) {
@@ -19,9 +19,9 @@ export class SearchComponent {
       filter(term => term.length >= 3),
       debounceTime(500),
       distinctUntilChanged(),
-      /*BS*/tap(() => this.isLoading = true),/*BE*/
+      tap(() => this.isLoading = true),
       switchMap(term => this.service.getAllSearch(term)),
-      /*BS*/tap(() => this.isLoading = false)/*BE*/
+      tap(() => this.isLoading = false)
     )
     .subscribe(books => {
       this.results = books;
