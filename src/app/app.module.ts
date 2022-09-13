@@ -8,7 +8,6 @@ import { BooksModule } from './books/books.module';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
